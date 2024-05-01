@@ -34,10 +34,6 @@ hosts.forEach((host) => {
 
 // ------------------------------
 // REST API 설계
-// host 전체 조회
-app.get('/hosts', function (req, res) {
-    res.json(db)
-})
 
 // host 개별 조회
 app.get('/host/:id', function (req, res) {
