@@ -28,7 +28,8 @@ Node.js express db 연동
 
 # 에러
 ## 에러 상황
-```          this.onResult(null, rows);
+```          
+            this.onResult(null, rows);
                ^
 
 TypeError: this.onResult is not a function
