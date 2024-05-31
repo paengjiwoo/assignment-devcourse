@@ -1,0 +1,59 @@
+const conn = require('../mariadb');
+const { StatusCodes } = require('http-status-codes');
+
+// 현재는 jwt 대신 user_id 사용
+const addToCart = (req, res) => {
+  const { book_id, quantity, user_id } = req.body;
+
+  let sql = `INSERT INTO cartItems (book_id, quantity, user_id)
+  VALUES (?, ?, ?);`;
+  let values = [book_id, quantity, user_id];
+  conn.query(sql, values, (err, results) => {
+    if (err) {
+      return res.status(StatusCodes.BAD_REQUEST).end();
+    }
+    return res.status(StatusCodes.OK).json(results);
+  });
+};
+
+const getCartItems = (req, res) => {
+  const { user_id, selected } = req.body;
+
+  let sql = `SELECT cartItems.id, book_id, title, summary, quantity, price  FROM cartItems 
+              LEFT JOIN books ON cartItems.book_id = books.id
+              WHERE user_id = ?`;
+  let values = []
+  
+  if (selected.length) {
+    sql = sql + ` AND cartItems.id IN (?)`
+    values.push(...[ user_id, selected ])
+    // selected 배열을 그대로 보내도 정상적으로 조회 가능
+  } else {
+    values.push(user_id)
+  }
+
+  conn.query(sql, values, (err, results) => {
+    if (err) {
+      return res.status(StatusCodes.BAD_REQUEST).end();
+    }
+    return res.status(StatusCodes.OK).json(results);
+  });
+};
+
+const deleteCartItem = (req, res) => {
+  const { id } = req.params;
+  
+  let sql = `DELETE FROM cartItems WHERE id = ?`;
+  conn.query(sql, id, (err, results) => {
+    if (err) {
+      return res.status(StatusCodes.BAD_REQUEST).end();
+    }
+    return res.status(StatusCodes.OK).json(results);
+  });
+};
+
+module.exports = {
+  addToCart,
+  getCartItems,
+  deleteCartItem
+};
