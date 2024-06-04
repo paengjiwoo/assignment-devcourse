@@ -8,7 +8,13 @@ app.listen(8888);
 
 // 토큰 발행
 app.get('/issue-token', function (req, res) {
-  const token = jwt.sign({foo : 'bar'}, process.env.PRIVATE_KEY);
+  const token = jwt.sign({
+    id : 1,
+    message : "안녕하세요"
+  }, process.env.PRIVATE_KEY, {
+    expiresIn : "1h",
+    issuer: "paeng"
+  });
   res.cookie("jwt", token, { httpOnly : true });
 });
 
