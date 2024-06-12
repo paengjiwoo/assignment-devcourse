@@ -3,7 +3,7 @@ JavaScript 학습
 
 # 진행 사항
 - 실습환경 세팅
-- JavaScript 언어의 특징
+- ![JavaScript 언어의 특징](https://github.com/JiwooPaeng/assignment-devcourse/blob/main/frontend_Basics/10%EC%A3%BC%EC%B0%A8/%5B10%EC%A3%BC%EC%B0%A8-Day1%5D/js%ED%8A%B9%EC%A7%95.md)
 - JavaScript 기초
   - 변수
   - 자료형
