@@ -3,12 +3,12 @@ JavaScript 학습
 
 # 진행 사항
 - 실습환경 세팅
-- ![JavaScript 언어의 특징](https://github.com/JiwooPaeng/assignment-devcourse/blob/main/frontend_Basics/10%EC%A3%BC%EC%B0%A8/%5B10%EC%A3%BC%EC%B0%A8-Day1%5D/js%ED%8A%B9%EC%A7%95.md)
+- [JavaScript 언어의 특징](https://github.com/JiwooPaeng/assignment-devcourse/blob/main/frontend_Basics/10%EC%A3%BC%EC%B0%A8/%5B10%EC%A3%BC%EC%B0%A8-Day1%5D/js%ED%8A%B9%EC%A7%95.md)
 - JavaScript 기초
-  - 변수
-  - 자료형
-  - 연산자
-  - 함수
+  - [변수](https://github.com/JiwooPaeng/assignment-devcourse/blob/main/frontend_Basics/10%EC%A3%BC%EC%B0%A8/%5B10%EC%A3%BC%EC%B0%A8-Day1%5D/%EB%B3%80%EC%88%98.md)
+  - [자료형](https://github.com/JiwooPaeng/assignment-devcourse/blob/main/frontend_Basics/10%EC%A3%BC%EC%B0%A8/%5B10%EC%A3%BC%EC%B0%A8-Day1%5D/%ED%83%80%EC%9E%85.md)
+  - [연산자](https://github.com/JiwooPaeng/assignment-devcourse/blob/main/frontend_Basics/10%EC%A3%BC%EC%B0%A8/%5B10%EC%A3%BC%EC%B0%A8-Day1%5D/%EC%97%B0%EC%82%B0%EC%9E%90.md)
+  - [함수](https://github.com/JiwooPaeng/assignment-devcourse/blob/main/frontend_Basics/10%EC%A3%BC%EC%B0%A8/%5B10%EC%A3%BC%EC%B0%A8-Day1%5D/%ED%95%A8%EC%88%98.md)
 
 <br>
 
