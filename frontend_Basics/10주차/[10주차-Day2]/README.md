@@ -6,7 +6,14 @@ JavaScript 학습
 - 문
   - 조건문
   - 반복문
+- 예외 처리
 - 객체
+  - Object
+  - Number, Math, Date
+- 정규 표현식
+
+- 가계부 구현 실습
+  - [베이스 코드](https://github.com/feel5ny/prms-js)
 
 <br>
 

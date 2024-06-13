@@ -39,6 +39,8 @@ do {
 } while ( 조건 );
 ```
 
+<br>
+
 ## for loop
 특정 부분의 코드가 반복적으로 수행
 
@@ -54,3 +56,12 @@ do {
   ```js
     for (let key in Object) { ... }
   ```
+
+<br>
+
+## break문 & continue 문
+### break문
+제어흐름 종류 중 프로그램 실행 중단 종류 <br>
+- 가장 가까운 반복문, switch문 종료 후 다음 명령어로 넘어감
+### continue문
+제어 흐름 종류 중 loop를 종료하고 다음 loop를 다시 시작하기 위해 사용
