@@ -38,3 +38,43 @@ npx create-react-app my-app
 ```
 npx create-react-app my-todolist --template typescript
 ```
+
+<br>
+
+# React 언어 개요
+```ts
+{/* 
+  작성자 : 팽지우
+  작성일 : 2024.06.19
+  내용 : React 프로젝트 생성
+*/}
+
+function App() {
+  let message : string = '테스트';
+  const style = {
+    // camelcase로 사용
+    color: 'white',
+    fontSize: '40px',
+    fontWeight: 'bold'
+  }
+
+  return (
+    <div className="App">
+      <header className="container">
+        {/* 주석을 작성합니다 */}
+        <br />
+        <div style={style} >{message}!!</div>
+      </header>
+    </div>
+  );
+}
+```
+
+- 반드시 컴포넌트 return 내용을 **부모 요소**로 감싸서 사용!
+- 스타일 적용
+  1. className, id를 지정해 css style 설정
+  2. html 태그 내부에서 style 직접 작성해 사용 (인라인 스타일링)
+- **변수**를 선언해 html 태그 content로 사용 가능
+- 렌더링 시 표현될 내용을 **조건 또는 삼항연산자**를 통해 표현 가능
+- 시작한 태그는 반드시 닫는 태그와 함께 작성 (self closing)
+- 주석은 `{/* content */}` 의 형태로 작성
