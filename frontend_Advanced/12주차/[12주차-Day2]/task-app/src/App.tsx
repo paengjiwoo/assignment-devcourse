@@ -1,13 +1,26 @@
-import { useState } from 'react'
-import './App.css'
-import { appContainer, board, buttons } from './App.css.ts'
+import { useState } from 'react';
+import './App.css';
+import { appContainer, board, buttons } from './App.css.ts';
+import BoardList from './components/BoardList/BoardList.tsx';
+import ListContainer from './components/ListContainer/ListContainer.tsx';
+import { useTypedSelector } from './hooks/redux.ts';
 
 function App() {
+  const [activeBoardId, setActiveBoardId] = useState('board-0');
+
+  const boards = useTypedSelector(state => state.boards.boardArray)
+
+  const getActiveBoard = boards.filter(board => board.boardId === activeBoardId)[0];
 
   return (
     <div className={appContainer}>
-      <div className={board}>
+      <BoardList 
+        activeBoardId={activeBoardId} 
+        setActiveBoardId={setActiveBoardId}
+      />
 
+      <div className={board}>
+        <ListContainer lists={getActiveBoard.lists} boardId={getActiveBoard.boardId} />
       </div>
 
       <div className={buttons}>
