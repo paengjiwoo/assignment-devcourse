@@ -5,23 +5,21 @@ import Button from "../components/common/Button";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { signUp } from "../api/auth.api";
+import { login, signUp } from "../api/auth.api";
 import { useAlert } from "../hooks/useAlert";
+import { SignupStyle } from "./Signup";
+import { useAuthStore } from "../store/authStore";
 
 export interface SignupProps {
   email: string;
   password: string;
 }
 
-const Signup = () => {
+const Login = () => {
   const navigate = useNavigate();
   const showAlert = useAlert();
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
-
-  // const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-  //   event.preventDefault()
-  // }
+  
+  const { isLoggedIn, storeLogin, storeLogout} = useAuthStore();
 
   const { 
     register, 
@@ -30,9 +28,14 @@ const Signup = () => {
     useForm<SignupProps>();
 
   const onSubmit = (data: SignupProps) => {
-    signUp(data).then(res => {
-      showAlert('회원가입이 완료되었습니다.');
-      navigate("/login");
+    login(data).then((res) => {
+      storeLogin(res.token)
+
+      console.log(res.token);
+      showAlert("로그인이 완료되었습니다.");
+      navigate("/");
+    }, (error) => {
+      showAlert("로그인에 실패하였습니다.");
     })
   };
 
@@ -76,30 +79,4 @@ const Signup = () => {
   );
 }
 
-export const SignupStyle = styled.div`
-  max-width: ${({ theme }) => theme.layout.width.small};
-  margin: 80px auto;
-
-  fieldset {
-    border: 0;
-    padding: 0 0 8px 0;
-    .error-text {
-      color: red;
-    }
-  }
-
-  input {
-    width: 100%;
-  }
-
-  button {
-    width: 100%;
-  }
-
-  .info {
-    text-align: center;
-    padding: 16px 0 0 0;
-  }
-`;
-
-export default Signup;
+export default Login;

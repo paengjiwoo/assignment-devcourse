@@ -9,6 +9,10 @@ import { useContext, useState } from 'react';
 import { BookStoreThemeProvider, ThemeContext } from './context/ThemeContext';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Signup from './pages/Signup';
+import ResetPassword from './pages/ResetPassword';
+import Login from './pages/Login';
+import Books from './pages/Books';
+import BookDetail from './pages/BookDetail';
 
 const router = createBrowserRouter([
   {
@@ -18,11 +22,23 @@ const router = createBrowserRouter([
   },
   {
     path: "/books",
-    element: <Layout><div>도서 목록</div></Layout>
+    element: <Layout><Books /></Layout>
   },
   {
     path: "/signup",
     element: <Layout><Signup /></Layout>
+  },
+  {
+    path: "/reset",
+    element: <Layout><ResetPassword /></Layout>
+  },
+  {
+    path: "/login",
+    element: <Layout><Login /></Layout>
+  },
+  {
+    path: "/book/:bookId",
+    element: <Layout><BookDetail /></Layout>
   },
 ]);
 
