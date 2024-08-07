@@ -2,27 +2,35 @@ import styled from "styled-components";
 import Title from "../components/common/Title";
 import InputText from "../components/common/InputText";
 import Button from "../components/common/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
-
+import { login, signUp } from "../api/auth.api";
+import { useAlert } from "../hooks/useAlert";
+import { SignupStyle } from "./Signup";
+import { useAuthStore } from "../store/authStore";
 import { useAuth } from "../hooks/useAuth";
 
-export interface SignupProps {
+export interface LoginProps {
   email: string;
   password: string;
 }
 
-const Signup = () => {
-  const { userSignup } = useAuth();
+const Login = () => {
+  const navigate = useNavigate();
+  const { showAlert } = useAlert();
+  
+  const { isLoggedIn, storeLogin, storeLogout} = useAuthStore();
+  const { useLogin } = useAuth();
 
   const { 
     register, 
     handleSubmit, 
     formState: { errors }} = 
-    useForm<SignupProps>();
+    useForm<LoginProps>();
 
-  const onSubmit = (data: SignupProps) => {
-    userSignup(data);
+  const onSubmit = (data: LoginProps) => {
+    useLogin(data)
   };
 
   return(
@@ -65,30 +73,4 @@ const Signup = () => {
   );
 }
 
-export const SignupStyle = styled.div`
-  max-width: ${({ theme }) => theme.layout.width.small};
-  margin: 80px auto;
-
-  fieldset {
-    border: 0;
-    padding: 0 0 8px 0;
-    .error-text {
-      color: red;
-    }
-  }
-
-  input {
-    width: 100%;
-  }
-
-  button {
-    width: 100%;
-  }
-
-  .info {
-    text-align: center;
-    padding: 16px 0 0 0;
-  }
-`;
-
-export default Signup;
+export default Login;
