@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "@tanstack/react-query": "^5.51.21",
+    "craco-alias": "^3.0.1"
+  },
+  "devDependencies": {
+    "@craco/craco": "^7.1.0"
+  }
+}
